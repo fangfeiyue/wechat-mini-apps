@@ -1,10 +1,10 @@
 <!-- wxml是编写小程序骨架的文件 -->
 <view>
     <image src="/images/avatar/1.png"></image>
-    <text>
-        <view>
-            <text>
-            </text>
-        </view>
-    </text>
+    <text>hello, Feiyue</text>
+    <view>
+        <text>
+            开启小程序之旅
+        </text>
+    </view>
 </view>
