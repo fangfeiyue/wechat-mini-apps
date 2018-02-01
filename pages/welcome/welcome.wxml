@@ -1,7 +1,7 @@
 <!-- wxml是编写小程序骨架的文件 -->
 <view class="container">
     <image class=".user-avatar" src="/images/avatar/1.png"></image>
-    <text class="user-name">hello, Feiyue</text>
+    <text class="user-name">hello, DouDou</text>
     <view class="moto-container">
         <text class="moto">开启小程序之旅</text>
     </view>
