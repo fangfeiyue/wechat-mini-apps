@@ -7,7 +7,7 @@
 - 小程序不支持Dom，没有window这个对象
 ## 项目总结
 
-- 微信小程序有自己的开发工具，是基于nw.js写的。做的比较简洁，基本的代码编辑、智能提示、调试等功能都有。不好的地方也很明显，不支持查看引用，不支持代码重构。背景、字体调节都不支持，感觉眼睛好受罪。我平常都是用vscode作为开发工具，但是微信小程序是用.wxml文件来表示页面结构，用.wxss文件来表示样式表，vscode是不能识别这两种扩展名的，因此没有语法高亮，也不能用emmet，好尴尬。。。最后再网上找到一个插件[vscode-wechat](https://marketplace.visualstudio.com/items?itemName=qinjia.vscode-wechat)，会修改用户设置中的文件关联,将.wxml映射到.html,.wxss映射到.css，语法高亮和emmet就都搞定了
+- 微信小程序有自己的开发工具，是基于nw.js写的。做的比较简洁，基本的代码编辑、智能提示、调试等功能都有。不好的地方也很明显，不支持查看引用，不支持代码重构。背景、字体调节都不支持，感觉眼睛好受罪。我平常都是用vscode作为开发工具，但是微信小程序是用.wxml文件来表示页面结构，用.wxss文件来表示样式表，vscode是不能识别这两种扩展名的，因此没有语法高亮，也不能用emmet，好尴尬。。。最后再网上找到一个插件[vscode-wechat](https://marketplace.visualstudio.com/items?itemName=qinjia.vscode-wechat)，会修改用户设置中的文件关联,将.wxml映射到.html,.wxss映射到.css，语法高亮和emmet就都搞定了。但是要注意哦vscode打开的必须是小程序的项目根目录，否则插件会不生效。
 
 - 小程序中只有被`<text></text>`包裹的组件才能在手机上被长按选中
 
