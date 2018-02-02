@@ -237,3 +237,11 @@ Page({
 ## 页面路由
 
 ![页面路由方法](https://github.com/fangfeiyue/wechat-mini-apps/blob/master/images/gitneed/%E9%A1%B5%E9%9D%A2%E8%B7%AF%E7%94%B1.png)
+
+注意：
+
+- navigateTo, redirectTo 只能打开非 tabBar 页面。
+- switchTab 只能打开 tabBar 页面。
+- reLaunch 可以打开任意页面。
+- 页面底部的 tabBar 由页面决定，即只要是定义为 tabBar 的页面，底部都有 tabBar。
+- 调用页面路由带的参数可以在目标页面的onLoad中获取。
