@@ -4,7 +4,7 @@
         <swiper-item><image src="/images/post/cat.png"></image></swiper-item>
         <swiper-item><image src="/images/post/crab.png"></image></swiper-item>
     </swiper>
-    <block wx:for="{{post_content1}}" wx:key="unique">
+    <block wx:for="{{postData}}" wx:key="unique">
         <view class="post-container">
             <view wx:if="{{item.image_condition}}" class="post-author-date">
                 <image class="post-author" src="{{item.avatar}}"></image>
