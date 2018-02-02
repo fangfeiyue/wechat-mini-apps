@@ -1,0 +1,7 @@
+<view>
+    <swiper>
+        <swiper-item><image src="/images/post/bl.png"></image></swiper-item>
+        <swiper-item><image src="/images/post/cat.png"></image></swiper-item>
+        <swiper-item><image src="/images/post/crab.png"></image></swiper-item>
+    </swiper>
+</view>

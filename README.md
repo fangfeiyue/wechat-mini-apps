@@ -26,3 +26,11 @@ rpx单位是微信小程序中css的尺寸单位，使用rpx，小程序会自�
 - 虽然rpx很方便，但并不是所有的单位都适合rpx，比如字体，如果字体也跟着屏幕变化，在小屏幕手机上会看不清
 
 - `<text></text>`中回车也会被输出到页面
+
+## swiper的应用
+
+swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下
+- autoplay 自动播放导致swiper变化
+- touch 用户划动引起swiper变化
+- 其他原因将用空字符串表示
+
