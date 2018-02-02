@@ -1,0 +1,19 @@
+<view class="container">
+    <image class="head-image" src="/images/post/bl.png"></image>
+    <image class="audio" src="/images/music/music-start.png"></image>
+    <view class="author-data">
+        <image class="avatar" src="/images/avatar/3.png"></image>
+        <text class="author">胡歌</text>
+        <text class="const-text">发表于</text>
+        <text class="date">三天前</text>
+    </view>
+    <text class="title">四方达阿什顿发</text>
+    <view class="tool">
+        <view class="circle-img">
+            <image src="/images/icon/collection.png"></image>
+            <image class="share-img" src="/images/icon/share.png"></image>
+        </view>
+        <view class="horizon"></view>
+    </view>
+    <text class="detail">安静了的房间辣坚实的法律撒娇的看法就按两地分居阿里斯顿解放啦时间段法拉盛案件代理商房间卡萨来得及发了啥肯德基法拉盛可点击法拉盛</text>
+</view>
