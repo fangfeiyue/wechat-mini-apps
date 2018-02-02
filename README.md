@@ -65,3 +65,79 @@ Page({
     } 
 })
 ```
+
+## 数据绑定
+
+WXML 中的动态数据均来自对应 Page 的 data
+
+### 简单绑定
+
+数据绑定使用 Mustache 语法（双大括号）将变量包起来
+
+```
+//.wxml
+<view> {{ message }} </view>
+
+//.js
+Page({
+  data: {
+    message: 'Hello MINA!'
+  }
+})
+```
+
+### Page.prototype.setData()
+
+`setData` 函数用于将数据从逻辑层发送到视图层（异步），同时改变对应的 `this.data` 的值（同步）
+
+setData() 参数格式
+| 字段 | 类型 | 必填 | 描述 | 最低版本 |
+| :-: | :-: | :-: | :-: |:-: |
+| data | Object| 是 | 这次要改变的数据 | | 
+| callback | Function | 否 | 回调函数 | 1.50 |
+
+object 以 key，value 的形式表示将 this.data 中的 key 对应的值改变成 value.callback 是一个回调函数，在这次setData对界面渲染完毕后调用,类似React中的setState
+
+注意：
+- 直接修改 this.data 而不调用 this.setData 是无法改变页面的状态的，还会造成数据不一致。
+- 单次设置的数据不能超过1024kB，请尽量避免一次设置过多的数据。
+- 请不要把 data 中任何一项的 value 设为 undefined ，否则这一项将不被设置并可能遗留一些潜在问题
+```
+//.js
+Page({
+    data:{
+        message: 'hello world'
+    },
+    onLoad: function(options){
+        // 页面初始化，options为页面跳转所带来的参数
+        var post_content1 = {
+            date: "Sep 18 2016",
+            title: "正是虾肥蟹壮时",
+            imgSrc: "/images/post/crab.png",
+            avatar: "/images/avatar/1.png",
+            content: "菊黄蟹正肥，品尝秋之味。徐志摩把,“看初花的荻芦”和“到楼外楼吃蟹”,并列为秋天来杭州不能错过的风雅之事；用林妹妹的话讲是“螯封嫩玉双双满，",
+            reading: "112",
+            collection: "96",
+        };
+
+        this.setData(post_content1);
+    }
+})
+
+//.wxml
+<view class="post-container">
+    <view class="post-author-date">
+        <image class="post-author" src="{{avatar}}"></image>
+        <text class="post-date">{{date}}</text>
+    </view>
+    <text class="post-title">{{title}}</text>
+    <image class="post-image" src="{{imgSrc}}"></image>
+    <text class="post-content ">{{content}}</text>
+    <view class="post-like">
+        <image class="post-like-image" src="../../images/icon/chat.png"></image>
+        <text class="post-like-count">{{collection}}</text>
+        <image class="post-like-image" src="../../images/icon/view.png"></image>
+        <text class="post-like-font">{{reading}}</text>
+    </view>
+</view>
+```
