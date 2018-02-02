@@ -164,6 +164,64 @@ Page({
 <view wx:elif="{{length > 2}}"> 2 </view>
 <view wx:else> 3 </view>
 ```
+## 列表渲染
+### wx:for
+
+在组件上使用 wx:for 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。默认数组的当前项的下标变量名默认为 `index`，数组当前项的变量名默认为 `item`
+```
+//.wxml
+<view wx:for="{{array}}">
+  {{index}}: {{item.message}}
+</view>
+
+//.js
+Page({
+  data: {
+    array: [{
+      message: 'foo',
+    }, {
+      message: 'bar'
+    }]
+  }
+})
+```
+- 使用 wx:for-item 可以指定数组当前元素的变量名，
+
+- 使用 wx:for-index 可以指定数组当前下标的变量名：
+```
+<view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName">
+  {{idx}}: {{itemName.message}}
+</view>
+```
+### wx:key
+如果列表中项目的位置会动态改变或者有新的项目添加到列表中，并且希望列表中的项目保持自己的特征和状态（如 `<input/>` 中的输入内容，`<switch/>` 的选中状态），需要使用 wx:key 来指定列表中项目的唯一的标识符,类似React中key
+
+`wx:key` 的值以两种形式提供
+- 字符串，代表在 for 循环的 array 中 item 的某个 property，该 property 的值需要是列表中唯一的字符串或数字，且不能动态改变。
+- 保留关键字 *this 代表在 for 循环中的 item 本身，这种表示需要 item 本身是一个唯一的字符串或者数字，
+
+当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率
+
+如不提供 wx:key，会报一个 warning， 如果明确知道该列表是静态，或者不必关注其顺序，可以选择忽略。
+```
+<block wx:for="{{post_content1}}" wx:key="unique">
+    <view class="post-container">
+        <view wx:if="{{item.image_condition}}" class="post-author-date">
+            <image class="post-author" src="{{item.avatar}}"></image>
+            <text class="post-date">{{item.date}}</text>
+        </view>
+        <text class="post-title">{{item.title}}</text>
+        <image class="post-image" src="{{item.imgSrc}}"></image>
+        <text class="post-content ">{{item.content}}</text>
+        <view class="post-like">
+            <image class="post-like-image" src="../../images/icon/chat.png"></image>
+            <text class="post-like-font">{{item.collection}}</text>
+            <image class="post-like-image" src="../../images/icon/view.png"></image>
+            <text class="post-like-font">{{item.reading}}</text>
+        </view>
+    </view>
+</block>
+```
 ## 事件
 ### 事件分类
 
