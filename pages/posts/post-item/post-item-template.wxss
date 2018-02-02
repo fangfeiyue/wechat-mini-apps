@@ -1,3 +1,12 @@
+.post-container{
+    display: flex;
+    flex-direction: column;
+    margin: 20rpx 0 40rpx 0;
+    background-color: #fff;
+    border-bottom: 1px solid #ededed;
+    /* border-top: 1px solid #ededed; */
+    padding-bottom: 5rpx;
+}
 .post-author-date{
     margin: 10rpx 0 20rpx 10rpx;
 }
