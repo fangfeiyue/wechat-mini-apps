@@ -6,6 +6,8 @@
         <swiper-item><image src="/images/post/crab.png"></image></swiper-item>
     </swiper>
     <block wx:for="{{postData}}" wx:key="unique">
-        <template is="postItem" data="{{...item}}"/>
+        <view catchtap="onPostTap" data-postId="{{item.postId}}">
+            <template is="postItem" data="{{...item}}"/>
+        </view>
     </block>
 </view>
