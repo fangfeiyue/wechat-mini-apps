@@ -1,16 +1,10 @@
 Page({
     onTap(){
-        wx.navigateTo({
-            url: '../posts/post',
-            success: function(res){
-                // success
-            },
-            fail: function() {
-                // fail
-            },
-            complete: function() {
-                // complete
-            }
+        // wx.navigateTo({
+        //     url: '../posts/post'
+        // }),
+        wx.redirectTo({
+            url: '../posts/post'
         })
     }
 })
