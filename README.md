@@ -164,5 +164,15 @@ Page({
 <view wx:elif="{{length > 2}}"> 2 </view>
 <view wx:else> 3 </view>
 ```
+## 事件
+### 事件分类
 
+- 冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递。
+- 非冒泡事件：当一个组件上的事件被触发后，该事件不会向父节点传递。
+
+事件绑定的写法同组件的属性，以 key、value 的形式。
+- key 以bind或catch开头，然后跟上事件的类型，如bindtap、catchtouchstart。自基础库版本 1.5.0 起，bind和catch后可以紧跟一个冒号，其含义不变，如bind:tap、、catch:touchstart。
+- value 是一个字符串，需要在对应的 Page 中定义同名的函数。不然当触发事件的时候会报错。
+
+`注意：bind事件绑定不会阻止冒泡事件向上冒泡，catch事件绑定可以阻止冒泡事件向上冒泡。`
 
