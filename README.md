@@ -29,6 +29,7 @@ rpx单位是微信小程序中css的尺寸单位，使用rpx，小程序会自�
 
 - 小程序中是可以使用less、scss的，但生成的文件扩张名一定要是.wxss
 
+- `<block/>` 标签将多个组件包装起来
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下
@@ -163,3 +164,5 @@ Page({
 <view wx:elif="{{length > 2}}"> 2 </view>
 <view wx:else> 3 </view>
 ```
+
+
