@@ -235,3 +235,5 @@ Page({
 `注意：bind事件绑定不会阻止冒泡事件向上冒泡，catch事件绑定可以阻止冒泡事件向上冒泡。`
 
 ## 页面路由
+
+![页面路由方法](https://github.com/fangfeiyue/wechat-mini-apps/blob/master/images/gitneed/%E9%A1%B5%E9%9D%A2%E8%B7%AF%E7%94%B1.png)
