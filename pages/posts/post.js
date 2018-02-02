@@ -1,33 +1,26 @@
 Page({
-    data: {
-      imgUrls: [
-        'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-        'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-      ],
-      indicatorDots: false,
-      autoplay: false,
-      interval: 5000,
-      duration: 1000
+    onLaunch: function(options) {
+        // 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
+        console.log('onlaunch');
     },
-    changeIndicatorDots: function(e) {
-      this.setData({
-        indicatorDots: !this.data.indicatorDots
-      })
+    onLoad: function(options){
+        // 页面初始化，options为页面跳转所带来的参数
+        console.log('onload');
     },
-    changeAutoplay: function(e) {
-      this.setData({
-        autoplay: !this.data.autoplay
-      })
+    onReady: function(){
+        // 页面渲染完成
+        console.log('onready');
     },
-    intervalChange: function(e) {
-      this.setData({
-        interval: e.detail.value
-      })
+    onShow: function(){
+        // 页面显示
+        console.log('onshow');
     },
-    durationChange: function(e) {
-      this.setData({
-        duration: e.detail.value
-      })
-    }
+    onHide: function(){
+        // 页面隐藏
+        console.log('onhide');
+    },
+    onUnload: function(){
+        // 页面关闭
+        console.log('onunload');
+    } 
   })

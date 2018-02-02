@@ -1,7 +1,22 @@
 <view>
-    <swiper>
+    <swiper indicator-dots="true" circular="true" autoplay="true">
         <swiper-item><image src="/images/post/bl.png"></image></swiper-item>
         <swiper-item><image src="/images/post/cat.png"></image></swiper-item>
         <swiper-item><image src="/images/post/crab.png"></image></swiper-item>
     </swiper>
+    <view class="post-container">
+        <view class="post-author-date">
+            <image class="post-author" src="/images/avatar/1.png"></image>
+            <text class="post-date">Nov 25 2018</text>
+        </view>
+        <text class="post-title">阿斯加德弗拉时代峻峰</text>
+        <image class="post-image" src="/images/post/crab.png"></image>
+        <text class="post-content ">asdfasdfasdfaadfasdfasdfasdfas</text>
+        <view class="post-like">
+            <image class="post-like-image" src="../../images/icon/chat.png"></image>
+            <text class="post-like-count">92</text>
+            <image class="post-like-image" src="../../images/icon/view.png"></image>
+            <text class="post-like-font">65</text>
+        </view>
+    </view>
 </view>

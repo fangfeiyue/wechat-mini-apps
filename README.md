@@ -27,6 +27,8 @@ rpx单位是微信小程序中css的尺寸单位，使用rpx，小程序会自�
 
 - `<text></text>`中回车也会被输出到页面
 
+- 小程序中是可以使用less、scss的，但生成的文件扩张名一定要是.wxss
+
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下
@@ -34,3 +36,32 @@ swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行�
 - touch 用户划动引起swiper变化
 - 其他原因将用空字符串表示
 
+## 页面的生命周期函数
+```
+Page({
+    onLaunch: function(options) {
+        // 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
+        console.log('onlaunch');
+    },
+    onLoad: function(options){
+        // 页面初始化，options为页面跳转所带来的参数
+        console.log('onload');
+    },
+    onReady: function(){
+        // 页面渲染完成
+        console.log('onready');
+    },
+    onShow: function(){
+        // 页面显示
+        console.log('onshow');
+    },
+    onHide: function(){
+        // 页面隐藏
+        console.log('onhide');
+    },
+    onUnload: function(){
+        // 页面关闭
+        console.log('onunload');
+    } 
+})
+```
