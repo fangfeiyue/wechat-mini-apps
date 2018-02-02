@@ -85,7 +85,16 @@ Page({
   }
 })
 ```
+### 关键字(需要在双引号之内)
 
+true：boolean 类型的 true，代表真值。
+
+false： boolean 类型的 false，代表假值。
+
+```
+<checkbox checked="{{false}}"> </checkbox>
+```
+`特别注意：不要直接写 checked="false"，其计算结果是一个字符串，转成 boolean 类型后代表真值。`
 ### Page.prototype.setData()
 
 `setData` 函数用于将数据从逻辑层发送到视图层（异步），同时改变对应的 `this.data` 的值（同步）
