@@ -5,7 +5,7 @@
         <swiper-item><image src="/images/post/crab.png"></image></swiper-item>
     </swiper>
     <view class="post-container">
-        <view class="post-author-date">
+        <view wx:if="{{image_condition}}" class="post-author-date">
             <image class="post-author" src="{{avatar}}"></image>
             <text class="post-date">{{date}}</text>
         </view>

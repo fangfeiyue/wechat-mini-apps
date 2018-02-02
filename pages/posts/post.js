@@ -16,6 +16,7 @@ Page({
             content: "菊黄蟹正肥，品尝秋之味。徐志摩把,“看初花的荻芦”和“到楼外楼吃蟹”,并列为秋天来杭州不能错过的风雅之事；用林妹妹的话讲是“螯封嫩玉双双满，",
             reading: "112",
             collection: "96",
+            image_condition: true
         };
 
         this.setData(post_content1);

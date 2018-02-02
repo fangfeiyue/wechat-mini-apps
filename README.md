@@ -151,3 +151,15 @@ Page({
     </view>
 </view>
 ```
+
+## 条件渲染
+### wx:if
+
+在框架中，使用 wx:if="{{condition}}" 来判断是否需要渲染该代码块：
+`<view wx:if="{{condition}}"> True </view>`
+也可以用 wx:elif 和 wx:else 来添加一个 else 块：
+```
+<view wx:if="{{length > 5}}"> 1 </view>
+<view wx:elif="{{length > 2}}"> 2 </view>
+<view wx:else> 3 </view>
+```
