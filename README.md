@@ -45,6 +45,7 @@ rpx单位是微信小程序中css的尺寸单位，使用rpx，小程序会自�
     "navigationBarBackgroundColor": "#b3d4db"
 }
 ```
+- 小程序开发工具控制面板的`APPData`可以查看当前页面绑定的数据内容
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下
