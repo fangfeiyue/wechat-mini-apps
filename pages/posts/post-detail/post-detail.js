@@ -4,9 +4,20 @@ Page({
     onLoad(options){
         let postId = options.id,
             postDataArr = postData.postData[postId];
-        console.log(postDataArr);
+
         this.setData({
             ...postDataArr
         });
+
+        wx.setStorageSync('name', 'fangfeiyue');
+    },
+    onCollectionTap(event){
+        let name = wx.getStorageSync('name');
+
+        console.log(name);
+    },
+    onShareTap(){
+        wx.removeStorageSync('name');
+        wx.clearStorageSync();
     }
 });
