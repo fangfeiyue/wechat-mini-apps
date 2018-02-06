@@ -321,5 +321,35 @@ is 属性可以使用 Mustache 语法，来动态决定具体需要渲染哪个�
 
 小程序中的Storage和平时我们网页开发用的localStorage的操作大体类似，都是一些固定的api，这里不再做详细描述，可查看官方文档[数据缓存](https://mp.weixin.qq.com/debug/wxadoc/dev/api/data.html)
 
+## 说明
+如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
+
+或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
+## 个人简介
+作者：房飞跃
+
+博客地址：[前端网](http://www.qdfuns.com/house/31986/note)  [博客园](https://www.cnblogs.com/fangfeiyue)  [GitHub](https://github.com/fangfeiyue)
+
+职业：web前端开发工程师
+
+爱好：探索新事物，学习新知识
+
+座右铭：一个终身学习者
+
+## 联系方式
+坐标：北京
+
+QQ：294925572
+
+微信：
+
+![XinShiJieDeHuHuan](http://note.youdao.com/yws/public/resource/c2361265179a03449f6d52397fd50033/xmlnote/100D55934BB446839482D3EA0CDC3E8D/17820)
+
+## 赞赏
+觉得有帮助可以微信扫码支持下哦，赞赏金额不限，一分也是您对作者的鼎力支持
+
+![微信打赏](http://note.youdao.com/yws/public/resource/c2361265179a03449f6d52397fd50033/xmlnote/D77744C8EC944CF6AA232272CBC5CF6D/17828)
+
+
 
  
