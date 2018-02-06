@@ -2,12 +2,11 @@ let postData = require('../../../data//posts-data.js');
 
 Page({
     data:{
-        collected:''
     },
     onLoad(options){
         let postId = options.id,
             postDataArr = postData.postData[postId],
-            postsCollected = wx.getStorageInfoSync('posts_collected');
+            postsCollected = wx.getStorageSync('posts_collect');
 
         this.data.currentPostId = postId;
 
@@ -15,13 +14,15 @@ Page({
             ...postDataArr
         });
 
-        if (postsCollected){
+        if (postsCollected[postId]){
+            console.log(postsCollected[postId]);
             this.setData({
                 collected: postsCollected[postId]
             });
         }else{
-            wx.setStorageSync('posts_collected', {
-                postId: false
+            wx.setStorageSync('posts_collect', {
+                ...postsCollected,
+                [postId]: false
             });
         }
     },
@@ -29,13 +30,14 @@ Page({
         const { currentPostId } = this.data,
               postsCollected    = wx.getStorageSync('posts_collect'),
               postCollected     = postsCollected[currentPostId];
-
-        wx.setStorageSync('posts_collect', {
-            [currentPostId]: !postCollected
+              
+        this.setData({
+            collected: !postCollected
         });
 
-        this.setData({
-            collected: postCollected
+        wx.setStorageSync('posts_collect', {
+            ...postsCollected,
+            [currentPostId]: !postCollected
         });
     },
     onShareTap(){
