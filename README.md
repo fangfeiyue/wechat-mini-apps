@@ -46,6 +46,18 @@ rpx单位是微信小程序中css的尺寸单位，使用rpx，小程序会自�
 }
 ```
 - 小程序开发工具控制面板的`APPData`可以查看当前页面绑定的数据内容
+
+- 音乐正在播放的时候，从音乐播放界面返回上一页，再次进入播放音乐的页面，音乐还在播放，但播放按钮的图标显示为没有播放,想通过设置全局变量来标记音乐是否播放，音乐播放和暂停的时候改变这个全局变量的值。用的下面的代码来操作的,不用想也知道绝对改变不了。。。
+```
+let { g_isPlayingMusic } = app.globalData;
+g_isPlayingMusic = false;
+```
+因为上面的代码展开如下
+```
+let g_isPlayingMusic = app.globalData.g_isPlayingMusic;
+g_isPlayingMusic = false;
+```
+明显是新声明了一个变量g_isPlayingMusic，改不改变跟全局变量没有半毛钱关系。。。。
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下
