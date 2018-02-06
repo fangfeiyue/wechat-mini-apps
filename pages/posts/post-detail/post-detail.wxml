@@ -10,7 +10,6 @@
     <text class="title">{{title}}</text>
     <view class="tool">
         <view class="circle-img">
-            <text>{{collected}}</text>
             <image wx:if="{{collected}}" catchtap="onCollectionTap" src="/images/icon/collection.png"></image>
             <image wx:else catchtap="onCollectionTap" src="/images/icon/collection-anti.png"></image>
             <image catchtap="onShareTap" class="share-img" src="/images/icon/share.png"></image>
