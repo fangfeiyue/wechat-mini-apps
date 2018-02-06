@@ -43,6 +43,38 @@ Page({
         }
     },
     onCollectionTap(event){
+        this.getPostsCollectedAsy();
+    },
+    getPostsCollectedAsy(){
+        let self = this;
+
+        wx.getStorage({
+            key: 'posts_collect',
+            success: function(res) {
+                const { currentPostId } = self.data,
+                      postCollected = res.data[currentPostId];
+                
+                self.setData({
+                    collected: !postCollected
+                }, () => {
+                    wx.showToast({
+                        title: !postCollected ? '收藏成功' : '取消成功',
+                        icon: 'success',
+                        duration: 2000
+                    });
+                 });
+
+                wx.setStorage({
+                    key: 'posts_collect',
+                    data: {
+                        ...res.data,
+                        [currentPostId]: !postCollected
+                    }
+                });
+            } 
+        });      
+    },
+    getPostsCollectedSyc(){
         const { currentPostId } = this.data,
               postsCollected    = wx.getStorageSync('posts_collect'),
               postCollected     = postsCollected[currentPostId];
@@ -71,7 +103,8 @@ Page({
         //       }
         //     }
         // });
-    },
+    }
+    ,
     onShareTap(){
         const itemList = ['分享到微信好友', '分享到朋友圈', '分享到QQ', '分享到微博'];
 
@@ -89,7 +122,15 @@ Page({
               console.log(res.errMsg);
             }
         });
+    },
+    onMusicTap(event){
+        const { currentPostId } = this.data;
+        const { url, title, coverImg } = postData.postData[currentPostId].music;
 
-
+        wx.playBackgroundAudio({
+            dataUrl: url,
+            title: title,
+            coverImgUrl: coverImg
+        });
     }
 });
