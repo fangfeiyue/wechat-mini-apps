@@ -2,6 +2,7 @@ let postData = require('../../../data//posts-data.js');
 
 Page({
     data:{
+        isPlayingMusic: false
     },
     onShareAppMessage(res){
         if (res.from === 'button') {
@@ -124,13 +125,22 @@ Page({
         });
     },
     onMusicTap(event){
+        const { isPlayingMusic } = this.data;
         const { currentPostId } = this.data;
         const { url, title, coverImg } = postData.postData[currentPostId].music;
 
-        wx.playBackgroundAudio({
-            dataUrl: url,
-            title: title,
-            coverImgUrl: coverImg
+        if (isPlayingMusic){
+            wx.pauseBackgroundAudio();
+        }else{ 
+            wx.playBackgroundAudio({
+                dataUrl: url,
+                title: title,
+                coverImgUrl: coverImg
+            });
+        }
+
+        this.setData({
+            isPlayingMusic: !isPlayingMusic
         });
     }
 });
