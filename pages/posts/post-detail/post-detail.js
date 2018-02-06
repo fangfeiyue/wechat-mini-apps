@@ -145,7 +145,7 @@ Page({
             app.globalData.g_isPlayingMusic = true;
 
             this.setData({
-                isPlayingMusic: app.globalData.g_isPlayingMusic
+                isPlayingMusic: true
             });
         });
         
@@ -153,7 +153,7 @@ Page({
             app.globalData.g_isPlayingMusic = false;
 
             this.setData({
-                isPlayingMusic: app.globalData.g_isPlayingMusic
+                isPlayingMusic: false
             });
         });
         
@@ -161,7 +161,7 @@ Page({
             app.globalData.g_isPlayingMusic = false;
 
             this.setData({
-                isPlayingMusic: app.globalData.g_isPlayingMusic
+                isPlayingMusic: false
             });
         });
     },
