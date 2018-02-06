@@ -23,6 +23,7 @@ Page({
     onLoad(options){
         let postId = options.id,
             postDataArr = postData.postData[postId],
+            { isPlayingMusic } = this.data,
             postsCollected = wx.getStorageSync('posts_collect');
 
         this.data.currentPostId = postId;
@@ -42,6 +43,8 @@ Page({
                 [postId]: false
             });
         }
+
+        this.watchPlayer(isPlayingMusic);
     },
     onCollectionTap(event){
         this.getPostsCollectedAsy();
@@ -138,9 +141,27 @@ Page({
                 coverImgUrl: coverImg
             });
         }
-
         this.setData({
             isPlayingMusic: !isPlayingMusic
+        });
+    },
+    watchPlayer(isPlayingMusic){
+        wx.onBackgroundAudioPlay(()=>{
+            this.setData({
+                isPlayingMusic: true
+            });
+        });
+        
+        wx.onBackgroundAudioPause(() => {
+            this.setData({
+                isPlayingMusic: false
+            });
+        });
+        
+        wx.onBackgroundAudioStop(() => {
+            this.setData({
+                isPlayingMusic: false
+            });
         });
     }
 });
