@@ -39,6 +39,12 @@ Page({
             ...postsCollected,
             [currentPostId]: !postCollected
         });
+
+        wx.showToast({
+            title: !postCollected ? '收藏成功':'取消成功',
+            icon: 'success',
+            duration: 2000
+        })
     },
     onShareTap(){
         wx.removeStorageSync('name');
