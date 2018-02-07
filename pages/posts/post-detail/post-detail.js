@@ -29,13 +29,11 @@ Page({
             });
         }
 
-        if (app.globalData.g_isPlayingMusic){
+        if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId === postId){
             this.setData({
                 isPlayingMusic: true
             });
         }
-
-        console.log('app.globalData.g_isPlayingMusic===>>',app.globalData.g_isPlayingMusic);
 
         this.watchPlayer(isPlayingMusic);
     },
@@ -139,11 +137,13 @@ Page({
         });
     },
     watchPlayer(isPlayingMusic){
+        let self = this;
         let { g_isPlayingMusic } = app.globalData;
+
 
         wx.onBackgroundAudioPlay(() => {
             app.globalData.g_isPlayingMusic = true;
-
+            app.globalData.g_currentMusicPostId = self.data.currentPostId;
             this.setData({
                 isPlayingMusic: true
             });
@@ -151,6 +151,7 @@ Page({
         
         wx.onBackgroundAudioPause(() => {
             app.globalData.g_isPlayingMusic = false;
+            app.globalData.g_currentMusicPostId = null;
 
             this.setData({
                 isPlayingMusic: false
@@ -159,6 +160,7 @@ Page({
         
         wx.onBackgroundAudioStop(() => {
             app.globalData.g_isPlayingMusic = false;
+            app.globalData.g_currentMusicPostId = null;
 
             this.setData({
                 isPlayingMusic: false
