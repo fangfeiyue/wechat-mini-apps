@@ -60,6 +60,7 @@ g_isPlayingMusic = false;
 明显是新声明了一个变量g_isPlayingMusic，改不改变跟全局变量没有半毛钱关系。。。。
 
 - template中尽量使用绝对路径，因为模板文件可能在多个文件使用，如果变了目录，导致模板里使用相对路径的文件找不到
+- 小程序中每次发出http请求的时候，refer和user-agent这两个字段不让用户设置，是微信自己设置好的，可以到控制面板network面板，找到headers这个标签，然后找到request headers就可以看到这两个字段了。
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下
