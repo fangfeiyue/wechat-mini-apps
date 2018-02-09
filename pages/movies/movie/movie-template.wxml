@@ -1,8 +1,8 @@
 <import src="../stars/stars-template.wxml" />
 <template name="movieTemplate">
-    <view>
-        <image src="/images/wx.png"></image>
-        <text>你的名字</text>
+    <view class="movie-container">
+        <image class="movie-img" src="/images/wx.png"></image>
+        <text class="movie-title">你的名字</text>
         <template is="starsTemplate"/>
     </view>
 </template>
