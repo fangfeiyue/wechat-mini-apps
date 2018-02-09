@@ -74,6 +74,7 @@ g_isPlayingMusic = false;
     ]
   }
 ```
+- 要跳转到一个带tabBar选项卡的页面，必须使用wx.switchTab方法
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下
