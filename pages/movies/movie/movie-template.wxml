@@ -1,8 +1,8 @@
-<import src="../starts/start-template.wxml" />
+<import src="../stars/stars-template.wxml" />
 <template name="movieTemplate">
     <view>
         <image src="/images/wx.png"></image>
         <text>你的名字</text>
-        <template is="startsTemplate"/>
+        <template is="starsTemplate"/>
     </view>
 </template>
