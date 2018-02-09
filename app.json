@@ -9,5 +9,24 @@
     "navigationBarTextStyle": "#fff",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "red",
+    "selectedColor": "blue",
+    "backgroundColor": "orange",
+    "borderStyle": "black",
+    "list": [{
+        "pagePath": "pages/welcome/welcome",
+        "text": "tab1",
+        "iconPath":"",
+        "selectedIconPath":""
+      },{
+        "pagePath": "pages/posts/post",
+        "text": "tab2",
+        "iconPath":"",
+        "selectedIconPath":""
+      }
+    ],
+    "position": "bottom"
   }
 }
