@@ -12,20 +12,19 @@
     "backgroundTextStyle": "light"
   },
   "tabBar": {
-    "color": "red",
+    "color": "#999",
     "selectedColor": "blue",
-    "backgroundColor": "orange",
-    "borderStyle": "black",
+    "borderStyle": "white",
     "list": [{
         "pagePath": "pages/posts/post",
-        "text": "文章",
-        "iconPath":"",
-        "selectedIconPath":""
+        "text": "阅读",
+        "iconPath":"/images/tab/yuedu.png",
+        "selectedIconPath":"/images/tab/yuedu_hl.png"
       },{
         "pagePath": "pages/movies/movies",
         "text": "电影",
-        "iconPath":"",
-        "selectedIconPath":""
+        "iconPath":"/images/tab/dianying.png",
+        "selectedIconPath":"/images/tab/dianying_hl.png"
       }
     ],
     "position": "bottom"
