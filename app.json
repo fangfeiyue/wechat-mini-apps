@@ -16,8 +16,8 @@
     "backgroundColor": "orange",
     "borderStyle": "black",
     "list": [{
-        "pagePath": "pages/welcome/welcome",
-        "text": "tab1",
+        "pagePath": "pages/movies/movies",
+        "text": "电影页面",
         "iconPath":"",
         "selectedIconPath":""
       },{
