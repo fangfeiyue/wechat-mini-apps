@@ -2,4 +2,5 @@
 text{
   font-family: Microsoft Yahei;
   font-size: 24rpx;  
+  color: #666;
 }
