@@ -107,6 +107,7 @@ processDoubanData(moviesDouban, type){
     });
 }
 ```
+- 用setData绑定数据最好在data对象里给相应的数据赋个初始值，以防因为异步的原因找不到想要的数据
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下

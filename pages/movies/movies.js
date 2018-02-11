@@ -2,6 +2,12 @@ let app = getApp();
 let doubanBase = app.globalData.doubanBase;
 
 Page({
+    data:{
+        // 用setData绑定数据最好在这给个初始值，以防因为异步的原因找不到想要的数据
+        inTheaters: {},
+        comingSoon: {},
+        top250: {}
+    },
     onLoad(){
         let inTheatersUrl = `${doubanBase}/v2/movie/in_theaters?start=0&count=3`;
         let comingSoonUrl = `${doubanBase}/v2/movie/coming_soon?start=0&count=3`;
