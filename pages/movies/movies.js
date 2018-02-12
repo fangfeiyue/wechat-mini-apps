@@ -15,13 +15,13 @@ Page({
         let top250Url = `${doubanBase}/v2/movie/top250?start=0&count=3`;
 
         // 正在热映
-        this.getMovieData(inTheatersUrl, "inTheaters");
+        this.getMovieData(inTheatersUrl, "inTheaters", "正在热映");
         // 即将上映
-        this.getMovieData(comingSoonUrl, "comingSoon");
+        this.getMovieData(comingSoonUrl, "comingSoon", '即将上映');
         // top250
-        this.getMovieData(top250Url, "top250");
+        this.getMovieData(top250Url, "top250", '豆瓣top250');
     },
-    getMovieData(url, type){
+    getMovieData(url, type, categoryTitle){
         let self = this;
         wx.request({
             url: url,
@@ -29,7 +29,7 @@ Page({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
             // header: {}, // 设置请求的 header
             success: function(res){
-                self.processDoubanData(res.data, type);
+                self.processDoubanData(res.data, type, categoryTitle);
             },
             fail: function() {
                 // fail
@@ -39,7 +39,7 @@ Page({
             }
         })
     },
-    processDoubanData(moviesDouban, type){
+    processDoubanData(moviesDouban, type, categoryTitle){
         let movies = [];
         moviesDouban.subjects.map(movie => {
             let title = movie.title;
@@ -58,7 +58,7 @@ Page({
         });
 
         this.setData({
-            [type]: { movies }
+            [type]: { movies, categoryTitle }
         });
     }
 });
