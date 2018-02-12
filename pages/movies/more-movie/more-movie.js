@@ -64,19 +64,17 @@ Page({
 
             movies.push(temp);
         });
-
-        totalMovies = this.data.movies.concat(movies);
     
         this.setData({
-            movies: totalMovies
-            // movies: [...this.data.movies, ...movies]
+            movies: [...this.data.movies, ...movies]
         });
 
         this.data.totalCount += 20;
     },
+    // 130400版本更新导致下拉刷新和scroll-view不能同时使用,所以如果想使用下拉刷新功能的话，这个方法得废弃
     onScrollLower(event){
         let nextUrl = `${this.data.requestUrl}?start=${this.data.totalCount}&count=20`;
-        
+        console.log('这个方法暂时不用');
         wx.showNavigationBarLoading();
 
         this.requestMoreMovies(nextUrl, (res) => {
@@ -84,6 +82,33 @@ Page({
             this.hideNavigationBarLoading();
         },(error) => {
             this.hideNavigationBarLoading();
+        });
+    },
+    onReachBottom(){
+        let nextUrl = `${this.data.requestUrl}?start=${this.data.totalCount}&count=20`;
+
+        wx.showNavigationBarLoading();
+
+        this.requestMoreMovies(nextUrl, (res) => {
+            this.processDoubanData(res);
+            this.hideNavigationBarLoading();
+        },(error) => {
+            this.hideNavigationBarLoading();
+        });
+    },
+    onPullDownRefresh(){
+        let refreshUrl = `${this.data.requestUrl}?start=0&count=20`;
+
+        wx.showNavigationBarLoading();
+        this.data.movies = [];
+        
+        this.requestMoreMovies(refreshUrl, (res) => {
+            this.processDoubanData(res);
+            wx.stopPullDownRefresh();
+            this.hideNavigationBarLoading();
+        }, (error) => {
+            this.hideNavigationBarLoading();
+            wx.stopPullDownRefresh();
         });
     },
     hideNavigationBarLoading(){
