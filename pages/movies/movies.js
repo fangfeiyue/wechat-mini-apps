@@ -1,4 +1,5 @@
 let app = getApp();
+let utils = require('../../utils/util.js');
 let doubanBase = app.globalData.doubanBase;
 
 Page({
@@ -50,7 +51,8 @@ Page({
                 title,
                 average: movie.rating.average,
                 coverageUrl: movie.images.large,
-                movieId: movie.id
+                movieId: movie.id,
+                stars: utils.getStars(movie.rating.stars || '')
             };
             movies.push(temp);
         });
