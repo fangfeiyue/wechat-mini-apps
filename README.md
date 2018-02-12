@@ -115,6 +115,29 @@ processDoubanData(moviesDouban, type){
 - 小程序快速创建页面
     - 用小程序开发工具打开微信小程序配置文件【app.json】，在"pages":[]数据中写入一条页面路径；
     - 然后按住电脑【Ctrl+S】保存。
+- 页面跳转传参,需要利用data-x传递参数，然后再另一个加载的页面用options拿到参数，例子：
+```
+// 传递参数的wxml页面代码
+<view catchtap="onMoreTap" data-category="{{categoryTitle}}" class="more">
+    <text class="more-text">更多</text>
+    <image class="more-img" src="/images/icon/arrow-right.png"></image>
+</view>
+
+// 传递参数页面的js
+onMoreTap(event){
+    let category = event.currentTarget.dataset.category;
+
+    wx.navigateTo({
+        url: `more-movie/more-movie?category=${category}`,
+    });
+}
+
+// 接收参数页面的js
+onLoad(options){
+    let category = options.category;
+    console.log(category);
+}
+```
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下

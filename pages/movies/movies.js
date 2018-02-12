@@ -21,6 +21,13 @@ Page({
         // top250
         this.getMovieData(top250Url, "top250", '豆瓣Top250');
     },
+    onMoreTap(event){
+        let category = event.currentTarget.dataset.category;
+
+        wx.navigateTo({
+            url: `more-movie/more-movie?category=${category}`,
+        });
+    },
     getMovieData(url, type, categoryTitle){
         let self = this;
         wx.request({
