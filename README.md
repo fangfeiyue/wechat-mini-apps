@@ -400,7 +400,14 @@ is 属性可以使用 Mustache 语法，来动态决定具体需要渲染哪个�
 注意： localStorage 是持久存储的，但是我们不建议将关键信息全部存在 localStorage，以防用户换设备的情况。
 
 小程序中的Storage和平时我们网页开发用的localStorage的操作大体类似，都是一些固定的api，这里不再做详细描述，可查看官方文档[数据缓存](https://mp.weixin.qq.com/debug/wxadoc/dev/api/data.html)
+## scroll-view
+可滚动视图区域。
 
+本项目中用这个实现上滑加载更多功能。
+
+bindscrolltolower这个事件在滚动到底部/右边，会触发 `scrolltolower` 事件.
+
+注意： 使用竖向滚动时，需要给`<scroll-view/>`一个固定高度，通过 WXSS 设置 height。
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 

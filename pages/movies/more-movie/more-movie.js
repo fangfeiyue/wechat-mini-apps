@@ -3,7 +3,8 @@ let utils = require('../../../utils/util.js');
 
 Page({
     data: {
-        subjects: [],
+        movies: [],
+        totalCount: 0,
         navigateTitle: ''
     },
     onLoad(options){
@@ -36,7 +37,9 @@ Page({
                 dataUrl = `${doubanBase}/v2/movie/top250`;
                 break;
         }
-
+        
+        this.data.requestUrl = dataUrl;
+        
         this.requestMoreMovies(dataUrl, (res) => {
             this.processDoubanData(res);
         },(error) => {
@@ -47,7 +50,8 @@ Page({
         utils.requestUrl({ url, resolve, reject });
     },
     processDoubanData(res){
-        let movies = [];
+        let movies = [],
+            totalMovies = [];
 
         res.subjects.map(subject => {
             let temp = {
@@ -61,8 +65,21 @@ Page({
             movies.push(temp);
         });
 
+        totalMovies = this.data.movies.concat(movies);
+    
         this.setData({
-            movies
+            movies: totalMovies
+            // movies: [...this.data.movies, ...movies]
+        });
+
+        this.data.totalCount += 20;
+    },
+    onScrollLower(event){
+        let nextUrl = `${this.data.requestUrl}?start=${this.data.totalCount}&count=20`;
+        this.requestMoreMovies(nextUrl, (res) => {
+            this.processDoubanData(res);
+        },(error) => {
+            
         });
     }
 });
