@@ -76,10 +76,19 @@ Page({
     },
     onScrollLower(event){
         let nextUrl = `${this.data.requestUrl}?start=${this.data.totalCount}&count=20`;
+        
+        wx.showNavigationBarLoading();
+
         this.requestMoreMovies(nextUrl, (res) => {
             this.processDoubanData(res);
+            this.hideNavigationBarLoading();
         },(error) => {
-            
+            this.hideNavigationBarLoading();
         });
+    },
+    hideNavigationBarLoading(){
+        setTimeout(() => {
+            wx.hideNavigationBarLoading();
+        }, 200);
     }
 });
