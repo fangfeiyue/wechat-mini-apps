@@ -1,1 +1,2 @@
-{{subjects[0].title}}
+<import src="../movie-grid/movie-grid-template.wxml"/>
+<template is="movieGridTemplate" data="{{movies}}" />

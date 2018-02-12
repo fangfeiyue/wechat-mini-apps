@@ -47,22 +47,22 @@ Page({
         utils.requestUrl({ url, resolve, reject });
     },
     processDoubanData(res){
-        let subjects = [];
+        let movies = [];
 
         res.subjects.map(subject => {
             let temp = {
                 movieId: subject.id,
-                image: subject.images.large,
+                coverageUrl: subject.images.large,
                 stars: subject.rating.stars,
                 average: subject.rating.average,
                 title: subject.title.length > 6 ? subject.title.substring(0, 6)+'...' : subject.title,
             };
 
-            subjects.push(temp);
+            movies.push(temp);
         });
 
         this.setData({
-            subjects
+            movies
         });
     }
 });
