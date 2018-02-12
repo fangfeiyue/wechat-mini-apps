@@ -29,11 +29,19 @@ Page({
         });
     },
     getMovieData(url, type, categoryTitle){
-        let self = this;
-        utils.requestUrl({ url , resolve(moviesDouban){
-            self.processDoubanData(moviesDouban, type, categoryTitle);
-        }, reject(error) {
-        }});
+
+        this.requestCategoryMovies(url, (moviesDouban) => {
+            this.processDoubanData(moviesDouban, type, categoryTitle);
+        }, (error) => {
+            console.log(`电影分类${categoryTitle}请求失败，${error}`);
+        });
+    },
+    requestCategoryMovies(url, resolve, reject){
+        utils.requestUrl({
+            url,
+            resolve,
+            reject
+        });
     },
     processDoubanData(moviesDouban, type, categoryTitle){
         let movies = [];
