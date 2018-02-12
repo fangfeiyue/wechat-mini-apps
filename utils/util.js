@@ -24,9 +24,31 @@ const getStars = stars => {
       }
   }
   return rating;
-}
+};
+
+const requestUrl = (params) => {
+  wx.request({
+    url: params.url || '',
+    data: params.data || {},
+    method: params.method || 'GET',
+    success: function(res){
+      if (200 === res.statusCode || "200" === res.status){
+        typeof params.resolve === 'function' && params.resolve(res.data, res.message);
+      }else{
+        typeof params.reject === 'function' && params.reject(res.msg)
+      }
+    },
+    fail: function() {
+      typeof params.error === 'function' && params.error(error.statusText)
+    },
+    complete: function() {
+      // complete
+    }
+  })
+};
 
 module.exports = {
   getStars,
-  formatTime: formatTime
+  requestUrl,
+  formatTime
 }

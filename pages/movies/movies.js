@@ -30,21 +30,10 @@ Page({
     },
     getMovieData(url, type, categoryTitle){
         let self = this;
-        wx.request({
-            url: url,
-            data: {},
-            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-            // header: {}, // 设置请求的 header
-            success: function(res){
-                self.processDoubanData(res.data, type, categoryTitle);
-            },
-            fail: function() {
-                // fail
-            },
-            complete: function() {
-                // complete
-            }
-        })
+        utils.requestUrl({ url , resolve(moviesDouban){
+            self.processDoubanData(moviesDouban, type, categoryTitle);
+        }, reject(error) {
+        }});
     },
     processDoubanData(moviesDouban, type, categoryTitle){
         let movies = [];
