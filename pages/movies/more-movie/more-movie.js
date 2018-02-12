@@ -3,6 +3,7 @@ let utils = require('../../../utils/util.js');
 
 Page({
     data: {
+        subjects: [],
         navigateTitle: ''
     },
     onLoad(options){
@@ -31,7 +32,7 @@ Page({
             case '即将上映':
                 dataUrl = `${doubanBase}/v2/movie/coming_soon`;
                 break;
-            case 'top250':
+            case '豆瓣Top250':
                 dataUrl = `${doubanBase}/v2/movie/top250`;
                 break;
         }
@@ -45,7 +46,22 @@ Page({
     requestMoreMovies(url, resolve, reject){
         utils.requestUrl({ url, resolve, reject });
     },
-    processDoubanData(){
+    processDoubanData(res){
+        let subjects = [];
 
+        res.subjects.map(subject => {
+            let temp = {
+                image: subject.images.large,
+                stars: subject.rating.stars,
+                average: subject.rating.average,
+                title: subject.title.length > 6 ? subject.title.substring(0, 6)+'...' : subject.title,
+            };
+
+            subjects.push(temp);
+        });
+
+        this.setData({
+            subjects
+        });
     }
 });
