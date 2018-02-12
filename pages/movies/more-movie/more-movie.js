@@ -84,6 +84,7 @@ Page({
             this.hideNavigationBarLoading();
         });
     },
+    // 上拉触底
     onReachBottom(){
         let nextUrl = `${this.data.requestUrl}?start=${this.data.totalCount}&count=20`;
 
@@ -96,12 +97,13 @@ Page({
             this.hideNavigationBarLoading();
         });
     },
+    // 下拉刷新
     onPullDownRefresh(){
         let refreshUrl = `${this.data.requestUrl}?start=0&count=20`;
 
         wx.showNavigationBarLoading();
         this.data.movies = [];
-        
+
         this.requestMoreMovies(refreshUrl, (res) => {
             this.processDoubanData(res);
             wx.stopPullDownRefresh();

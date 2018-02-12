@@ -138,6 +138,51 @@ onLoad(options){
     console.log(category);
 }
 ```
+- 130400版本更新导致下拉刷新和`scroll-view`不能同时使用,所以如果想使用下拉刷新功能的话不能用`scroll-view`了，具体步骤如下
+    - 用view包裹要下拉加载显示的组件
+    ```
+    <view class="grid-container">
+        <block wx:for="{{movies}}" wx:for-item="movie" wx:key="subject">
+            <view class="single-view-container">
+                <template is="movieTemplate" data="{{...movie}}"/>
+            </view>
+        </block>
+    </view>
+    ```
+    - 设置对应页面的json文件
+    ```
+    "enablePullDownRefresh": true  //注意这个值是bool类型的
+    ```
+    - 此时页面下拉会调用`onPullDownRefresh`，这个方法，我们需要在这个方法里写下拉刷新的逻辑代码
+    ```
+    onReachBottom(){
+        let nextUrl = `${this.data.requestUrl}?start=${this.data.totalCount}&count=20`;
+
+        wx.showNavigationBarLoading();
+
+        this.requestMoreMovies(nextUrl, (res) => {
+            this.processDoubanData(res);
+            this.hideNavigationBarLoading();
+        },(error) => {
+            this.hideNavigationBarLoading();
+        });
+    },
+    ```
+    - 上拉刷新和下拉加载都要实现的话，就不能使用`scroll-view`实现下拉刷新的话，这时可以使用onReachBottom这个方法实现下拉刷新，其他配置如上，逻辑代码如下
+    ```
+    onReachBottom(){
+        let nextUrl = `${this.data.requestUrl}?start=${this.data.totalCount}&count=20`;
+
+        wx.showNavigationBarLoading();
+
+        this.requestMoreMovies(nextUrl, (res) => {
+            this.processDoubanData(res);
+            this.hideNavigationBarLoading();
+        },(error) => {
+            this.hideNavigationBarLoading();
+        });
+    }
+    ```
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下
