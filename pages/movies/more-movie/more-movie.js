@@ -51,6 +51,7 @@ Page({
 
         res.subjects.map(subject => {
             let temp = {
+                movieId: subject.id,
                 image: subject.images.large,
                 stars: subject.rating.stars,
                 average: subject.rating.average,
