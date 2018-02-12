@@ -19,7 +19,7 @@ Page({
         // 即将上映
         this.getMovieData(comingSoonUrl, "comingSoon", '即将上映');
         // top250
-        this.getMovieData(top250Url, "top250", '豆瓣top250');
+        this.getMovieData(top250Url, "top250", '豆瓣Top250');
     },
     getMovieData(url, type, categoryTitle){
         let self = this;

@@ -112,7 +112,9 @@ processDoubanData(moviesDouban, type){
 ```
 <template is="starsTemplate" data="{{stars, average}}"/>
 ```
-
+- 小程序快速创建页面
+    - 用小程序开发工具打开微信小程序配置文件【app.json】，在"pages":[]数据中写入一条页面路径；
+    - 然后按住电脑【Ctrl+S】保存。
 ## swiper的应用
 
 swiper其中只可放置`<swiper-item/>`组件，否则会导致未定义的行为，swiper-item仅可放置在`<swiper/>`组件中，宽高自动设置为100%。change事件返回detail中包含一个`source`字段，表示导致变更的原因，可能值如下
