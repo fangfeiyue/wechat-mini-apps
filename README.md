@@ -13,12 +13,21 @@ git clone https://github.com/fangfeiyue/wechat-mini-apps.git
 ```
 ## 项目截图
 ![项目截图](https://github.com/fangfeiyue/wechat-mini-apps/blob/master/images/gitneed/mini-apps.gif)
-## 文件结构
 ## 功能
-- [√]
-- [√]
-- [√]
-
+- 启动页 [√]
+- 搜索电影 [√]
+- 音乐播放 [√]
+- 文章列表 [√]
+- 文章详情 [√]
+- 图片预览 [√]
+- 上拉刷新电影数据 [√]
+- 下拉加载电影数据 [√]
+- 状态栏通知 [√]
+- 操作菜单等组件和API的用法 [√]
+- 配置文件、Swiper组件 [√]
+- Page页面的生命周期、数据绑定 [√]
+- 数据缓存与列表渲染 [√]
+- template模板化编程 [√]
 ## 初始小程序
 ###  小程序的特点
 - 小程序适合做简单的，用完即走的的应用
