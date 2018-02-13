@@ -7,7 +7,10 @@ Page({
         // 用setData绑定数据最好在这给个初始值，以防因为异步的原因找不到想要的数据
         inTheaters: {},
         comingSoon: {},
-        top250: {}
+        top250: {},
+        containerShow: true,
+        searchPanelShow: false,
+        searchResult: []
     },
     onLoad(){
         let inTheatersUrl = `${doubanBase}/v2/movie/in_theaters?start=0&count=3`;
@@ -63,6 +66,22 @@ Page({
 
         this.setData({
             [type]: { movies, categoryTitle }
+        });
+    },
+    onBindFocus(){
+        this.setData({
+            containerShow: false,
+            searchPanelShow: true
+        });
+    }, 
+    onBindConfirm(){
+        
+    },
+    onCancelSearch(){
+        this.setData({
+            containerShow: true,
+            searchPanelShow: false,
+            searchPanelShow: []
         });
     }
 });
