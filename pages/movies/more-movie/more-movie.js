@@ -103,6 +103,9 @@ Page({
 
         wx.showNavigationBarLoading();
         this.data.movies = [];
+        this.data.totalCount = 0;
+
+        console.log(this.data.totalCount);
 
         this.requestMoreMovies(refreshUrl, (res) => {
             this.processDoubanData(res);
