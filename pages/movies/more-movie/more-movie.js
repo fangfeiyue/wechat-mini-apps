@@ -57,7 +57,7 @@ Page({
             let temp = {
                 movieId: subject.id,
                 coverageUrl: subject.images.large,
-                stars: subject.rating.stars,
+                stars: utils.getStars(subject.rating.stars || ''),
                 average: subject.rating.average,
                 title: subject.title.length > 6 ? subject.title.substring(0, 6)+'...' : subject.title,
             };
