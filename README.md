@@ -12,6 +12,7 @@ git clone https://github.com/fangfeiyue/wechat-mini-apps.git
 下载完项目，直接用微信小程序开发工具打开项目即可
 ```
 ## 项目截图
+![项目截图](https://github.com/fangfeiyue/wechat-mini-apps/blob/master/images/gitneed/mini-apps.gif)
 ## 文件结构
 ## 功能
 - [√]
