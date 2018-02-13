@@ -120,5 +120,12 @@ Page({
         setTimeout(() => {
             wx.hideNavigationBarLoading();
         }, 200);
+    },
+    onMovieTap(event){
+        let movieId = event.currentTarget.dataset.movieid;
+        
+        wx.navigateTo({
+            url: `../movie-detail/movie-detail?movieId=${movieId}`
+        });
     }
 });

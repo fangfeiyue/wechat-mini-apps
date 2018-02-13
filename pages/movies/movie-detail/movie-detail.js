@@ -40,7 +40,7 @@ Page({
       year: movieDetail.year,
       title: movieDetail.title,
       summary: movieDetail.summary,
-      score: movieDetail.rating.average,
+      average: movieDetail.rating.average,
       wishCount: movieDetail.wish_count,
       country: movieDetail.countries[0],
       genres: movieDetail.genres.join('、'),
@@ -75,5 +75,12 @@ Page({
         img: cast.avatars && cast.avatars.large || ''
       };
     });
+  }, 
+  viewMoviePostImg(event){
+    let imgSrc = event.currentTarget.dataset.src;
+    wx.previewImage({
+      current: imgSrc, // 当前显示图片的链接，不填则默认为 urls 的第一张,
+      urls: [imgSrc]
+    })
   }
 })
