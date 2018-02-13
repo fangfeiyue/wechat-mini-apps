@@ -53,7 +53,7 @@ Page({
     };
 
     this.setData({
-      movie
+      ...movie
     });
   },
   formatCastsName(casts){

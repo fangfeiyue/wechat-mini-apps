@@ -1,3 +1,4 @@
+@import "../stars/stars-template.wxss";
 .container{
     display: flex;
     flex-direction: column;
@@ -5,4 +6,58 @@
 .head-img{
     width: 100%;
     height: 320rpx;    
+} 
+.head-img-hover{
+
+}
+.main-title{
+
+}
+.sub-title{
+
+}
+.like{
+
+}
+.highlight-font{
+
+}
+.plain-font{
+
+}
+.movie-img{
+
+}
+.summary{
+
+}
+.original-title{
+
+}
+.flex-row{
+
+}
+.mark{
+     
+}
+.hr{
+
+}
+.synopsis{
+
+}
+.summary-content{
+
+}
+.casts{
+
+}
+.cast-img{
+
+}
+.cast-container{
+
+}
+.cast-name{
+    
 }
