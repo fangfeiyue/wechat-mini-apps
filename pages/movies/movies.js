@@ -10,7 +10,7 @@ Page({
         top250: {},
         containerShow: true,
         searchPanelShow: false,
-        searchResult: []
+        searchResult: [] 
     },
     onLoad(){
         let inTheatersUrl = `${doubanBase}/v2/movie/in_theaters?start=0&count=3`;
@@ -74,14 +74,25 @@ Page({
             searchPanelShow: true
         });
     }, 
-    onBindConfirm(){
-        
+    onBindConfirm(event){
+        let searchContent = event.detail.value,
+            searchUrl = `${doubanBase}/v2/movie/search?q=${searchContent}`;
+
+        this.onSearch(searchUrl, (searchResult) => {
+            console.log(searchResult);
+            this.processDoubanData(searchResult, 'searchResult', '');
+        }, (error) => {
+
+        });
+    },
+    onSearch(url, resolve, reject){
+        utils.requestUrl({ url, resolve, reject });
     },
     onCancelSearch(){
         this.setData({
+            searchResult: [],
             containerShow: true,
-            searchPanelShow: false,
-            searchPanelShow: []
+            searchPanelShow: false
         });
     }
 });

@@ -1,4 +1,5 @@
 @import './movie-list/movie-list-template.wxss';
+@import './movie-grid/movie-grid-template.wxss' ;
 .search{
     background-color: #f2f2f2;
     height: 80rpx;
