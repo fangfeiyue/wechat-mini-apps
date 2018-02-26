@@ -481,6 +481,13 @@ is 属性可以使用 Mustache 语法，来动态决定具体需要渲染哪个�
 bindscrolltolower这个事件在滚动到底部/右边，会触发 `scrolltolower` 事件.
 
 注意： 使用竖向滚动时，需要给`<scroll-view/>`一个固定高度，通过 WXSS 设置 height。
+
+## wx.login
+- 不需要授权，静默登录
+- 登录状态有时效性
+- 多久失效由微信服务器决定
+## wx.getUserInfo
+- 获取用户信息，withCredentials 为 true 时需要先调用 wx.login 接口。
 ## 待解决
 - top250加载更多数据，有时会出现空格，显示不完善
 - 电影搜索结果页面没有做上拉加载、下拉刷新

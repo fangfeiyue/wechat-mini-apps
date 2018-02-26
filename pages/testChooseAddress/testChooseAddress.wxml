@@ -1,0 +1,7 @@
+<button type="primary" style="margin-top:30px;" bindtap="onChooseAddress">选择收货地址</button>
+<button type="default" style="margin-top:30px;">用户设置界面</button>
+<button type="warn" style="margin-top:30px;" bindtap="checkSession">检查登录状态</button>
+<button type="primary" style="margin-top:30px;" bindtap="onGetUserInfo">获取用户信息</button>
+<button type="default" style="margin-top:30px;">开始录音</button>
+<button type="warn" style="margin-top:30px;">设置分享按钮</button>
+<button type="primary" style="margin-top:30px;">取消分享按钮</button>

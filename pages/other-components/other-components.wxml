@@ -1,0 +1,28 @@
+<view class="body-view">
+    <view>switch组件</view>
+    <switch color="blue" class="switchColor" bindchange="switchChange"/>
+    <view>slider组件</view>
+    <slider min="0" max="500" value="80" backgroundColor="red" activeColor="blue" block-size="12" block-color="orange" show-value="{{true}}" bindchange="sliderChange" bindchanging="sliderChanging"/>
+    <view>radio组件</view>
+    <radio-group bindchange="radioChange">
+        <label>
+            <radio color="red" value="中国"/>中国
+        </label>
+        <label>
+            <radio color="blue" value="美国"/>美国
+        </label>
+    </radio-group>
+    <view>form表单</view>
+    <form bindsubmit="submitForm">
+        <radio-group bindchange="radioChange">
+            <label>
+                <radio color="red" value="中国"/>中国
+            </label>
+            <label>
+                <radio color="blue" value="美国"/>美国
+            </label>
+        </radio-group>
+        <button form-type="submit">提交</button>
+        <button form-type="reset">重置</button>
+    </form>
+</view>

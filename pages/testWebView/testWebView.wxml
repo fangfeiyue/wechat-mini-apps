@@ -1,0 +1,3 @@
+<!-- <web-view src="https://mp.weixin.qq.com/"></web-view> -->
+
+<map scale="16" show-location="true" bindcontroltap="testBindcontroltap" bindregionchange="testBindregionchange" bindtap="testBindtap" bindupdated="testBindupdated"></map>
