@@ -488,6 +488,17 @@ bindscrolltolower这个事件在滚动到底部/右边，会触发 `scrolltolowe
 - 多久失效由微信服务器决定
 ## wx.getUserInfo
 - 获取用户信息，withCredentials 为 true 时需要先调用 wx.login 接口。
+## 场景值
+可以在app.js中`App`的`onlaunch`和`onshow`中获取上述场景值，部分场景值下还可以获取来源应用、公众号或小程序的appId。
+```
+App({
+  onLaunch: function (options) {
+      console.log(options.scene); // 输出场景值
+  }
+}
+```
+获取到的场景值表示的含义可以从这里查询:[场景值](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/scene.html)
+
 ## 待解决
 - top250加载更多数据，有时会出现空格，显示不完善
 - 电影搜索结果页面没有做上拉加载、下拉刷新

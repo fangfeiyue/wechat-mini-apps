@@ -80,26 +80,40 @@ Page({
   },
   // 获取用户信息，withCredentials 为 true 时需要先调用 wx.login 接口。
   onGetUserInfo(){
-    wx.getUserInfo({
-      withCredentials: true,
-      success: function(res) {
-        var userInfo = res.userInfo;
-        var nickName = userInfo.nickName;
-        var avatarUrl = userInfo.avatarUrl;
-        var gender = userInfo.gender; //性别 0：未知、1：男、2：女
-        var province = userInfo.province;
-        var city = userInfo.city;
-        var country = userInfo.country;
-
-        console.log(userInfo);
-        console.log(nickName);
-        console.log(avatarUrl);
-        console.log(gender);
-        console.log(province);
-        console.log(city);
-        console.log(country);
+    wx.login({
+      success: function(res){
+        wx.getUserInfo({
+          withCredentials: true,
+          success: function(res) {
+            var userInfo = res.userInfo;
+            var nickName = userInfo.nickName;
+            var avatarUrl = userInfo.avatarUrl;
+            var gender = userInfo.gender; //性别 0：未知、1：男、2：女
+            var province = userInfo.province;
+            var city = userInfo.city;
+            var country = userInfo.country;
+    
+            console.log('userInfo===>',res);
+            console.log(userInfo);
+            console.log(nickName);
+            console.log(avatarUrl);
+            console.log(gender);
+            console.log(province);
+            console.log(city);
+            console.log(country);
+          },
+          complete: function(res){
+            console.log('complete===>', res);
+          }
+        });
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
       }
-    });
+    })
   },
   checkSession(){
       wx.checkSession({
@@ -114,5 +128,27 @@ Page({
         }
       })
   },
-  test(){}
+  onOpenSetting(){
+    wx.openSetting({
+      success: function(res){
+        console.log('openSetting', res);
+      }
+    });
+  },
+  // 录音功能
+  onGetRecorderManager(){
+    console.log('录音功能');
+    const recorderManager = wx.getRecorderManager();
+    
+  },
+  // 打开分享
+  showShare(){
+    console.log('设置分享按钮');
+    wx.showShareMenu();
+  },
+  // 关闭分享
+  hideShare(){
+    console.log('打开分享按钮');
+    wx.hideShareMenu();
+  }
 })
