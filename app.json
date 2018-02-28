@@ -1,7 +1,7 @@
 {
   "pages":[
+    "pages/testMap/testMap",
     "pages/testChooseAddress/testChooseAddress",
-    "pages/testWebView/testWebView",
     "pages/other-components/other-components",
     "pages/welcome/welcome",
     "pages/posts/post",

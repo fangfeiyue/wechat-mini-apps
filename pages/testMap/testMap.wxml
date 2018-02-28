@@ -1,0 +1,4 @@
+<!-- <web-view src="https://mp.weixin.qq.com/"></web-view> -->
+
+<text>{{polyline.points[0].longitude}}</text>
+<map scale="12" longitude="113.324520" latitude="23.099994" show-location="true" bindcontroltap="testBindcontroltap" bindregionchange="testBindregionchange" bindtap="testBindtap" bindupdated="testBindupdated" bindmarkertap="marktap" polyline="{{polyline}}" markers="{{markers}}" style="height:700px;width:100%;"></map>
