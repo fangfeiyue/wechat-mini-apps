@@ -106,5 +106,12 @@ Page({
         ...movie
       });
     });
+  },
+  viewMoviePostImg(event) {
+    let imgSrc = event.currentTarget.dataset.src;
+    wx.previewImage({
+      current: imgSrc, // 当前显示图片的链接，不填则默认为 urls 的第一张,
+      urls: [imgSrc]
+    })
   }
 });
