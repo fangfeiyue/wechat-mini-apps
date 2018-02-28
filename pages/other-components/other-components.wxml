@@ -1,28 +1,90 @@
-<view class="body-view">
+<form bindsubmit="submitForm" bindreset="resetForm">
     <view>switch组件</view>
-    <switch color="blue" class="switchColor" bindchange="switchChange"/>
+    <view>
+        <switch color="blue" class="switchColor" bindchange="switchChange" />
+    </view>
     <view>slider组件</view>
-    <slider min="0" max="500" value="80" backgroundColor="red" activeColor="blue" block-size="12" block-color="orange" show-value="{{true}}" bindchange="sliderChange" bindchanging="sliderChanging"/>
+    <view>
+        <slider min="0" max="500" value="80" backgroundColor="red" activeColor="blue" block-size="12" block-color="orange" show-value="{{true}}"
+            bindchange="sliderChange" bindchanging="sliderChanging" />
+    </view>
     <view>radio组件</view>
-    <radio-group bindchange="radioChange">
-        <label>
-            <radio color="red" value="中国"/>中国
-        </label>
-        <label>
-            <radio color="blue" value="美国"/>美国
-        </label>
-    </radio-group>
-    <view>form表单</view>
-    <form bindsubmit="submitForm">
+    <view>
         <radio-group bindchange="radioChange">
             <label>
-                <radio color="red" value="中国"/>中国
+                <radio color="red" value="中国" />中国
             </label>
             <label>
-                <radio color="blue" value="美国"/>美国
+                <radio color="blue" value="美国" />美国
             </label>
         </radio-group>
+    </view>
+    <view>form表单</view>
+    <radio-group bindchange="radioChange">
+        <label>
+            <radio color="red" value="中国" />中国
+        </label>
+        <label>
+            <radio color="blue" value="美国" />美国
+        </label>
+    </radio-group>
+    <view>
         <button form-type="submit">提交</button>
         <button form-type="reset">重置</button>
-    </form>
-</view>
+    </view>
+</form>
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section section_gap">
+        <view class="section__title">switch</view>
+        <switch name="switch" />
+    </view>
+    <view class="section section_gap">
+        <view class="section__title">slider</view>
+        <slider name="slider" show-value></slider>
+    </view>
+
+    <view class="section">
+        <view class="section__title">input</view>
+        <input name="input" placeholder="please input here" />
+    </view>
+    <view class="section section_gap">
+        <view class="section__title">radio</view>
+        <radio-group name="radio-group">
+            <label>
+                <radio value="radio1" />radio1</label>
+            <label>
+                <radio value="radio2" />radio2</label>
+        </radio-group>
+    </view>
+    <view class="section section_gap">
+        <view class="section__title">checkbox</view>
+        <checkbox-group name="checkbox">
+            <label>
+                <checkbox value="checkbox1" />checkbox1</label>
+            <label>
+                <checkbox value="checkbox2" />checkbox2</label>
+        </checkbox-group>
+    </view>
+    <view class="btn-area">
+        <button formType="submit">Submit</button>
+        <button formType="reset">Reset</button>
+    </view>
+</form>
+
+<!-- 测试form -->
+<form bindsubmit="submitForm" bindreset="resetForm">
+    <view class="section section_gap">
+        <view class="section__title">checkbox</view>
+        <checkbox-group name="checkbox">
+            <label>
+                <checkbox value="checkbox1" />checkbox1</label>
+            <label>
+                <checkbox value="checkbox2" />checkbox2</label>
+        </checkbox-group>
+    </view>
+    <view>
+        <button formType="submit">Submit</button>
+        <button formType="reset">Reset</button>
+    </view>
+</form>
